@@ -1,0 +1,16 @@
+Initialization:
+
+The DPDK environment is initialized using rte_eal_init.
+A memory pool for packet buffers is created using rte_pktmbuf_pool_create.
+Port Configuration:
+
+The Ethernet port is configured using rte_eth_dev_configure.
+RX queues are set up using rte_eth_rx_queue_setup.
+The port is started with rte_eth_dev_start, and promiscuous mode is enabled.
+Packet Capture Loop:
+
+Packets are captured in bursts using rte_eth_rx_burst.
+Each packet's length is printed, and the packet buffer is freed using rte_pktmbuf_free.
+Cleanup:
+
+The Ethernet port is stopped and closed, and DPDK resources are cleaned up (though this part is unreachable in the infinite loop).
